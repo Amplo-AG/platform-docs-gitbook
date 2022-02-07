@@ -178,7 +178,7 @@ we use the following schema:
 
 ### Event Driven Connections
 Event Driven Connection goes through APIs. Event Driven integration is only used for [Automated Diagnostics](../Educational/Services.md#automated-diagnostics)
-and therefore the `Diagnostics` endpoint can be used. Visit our [API Documentation](https://portal.amplo.ch/api-docs)
+and therefore the `Diagnostics` endpoint can be used. Visit our [API Documentation](https://platform.amplo.ch/openapi)
 for more information. Your `Team Identifier` and `API Key` can be found under `Settings` > `API Access`.
 
 ## Ticket System Integration
@@ -214,10 +214,10 @@ You are relatively free to integrate anything with these webhooks. The most comm
 
 - Trigger Webhook
 - Request Type: Post
-- URL: https://portal.amplo.ch/api/diagnosis
+- URL: https://platform.amplo.ch/api/diagnosis
 - Requires Authentication
-- Enter the [your API Key](https://platform.amplo.ch/settings?api_access)
-- Create the body according to our [API Documentation](https://portal.amplo.ch/api-docs)
+- Enter the [your API Key](https://platform.amplo.ch/settings?page=api_access)
+- Create the body according to our [API Documentation](https://platform.amplo.ch/openapi)
 
 
 ### Salesforce

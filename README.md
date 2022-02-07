@@ -27,6 +27,7 @@ robust MLOps framework at your disposal.
   * [Collecting Data](Usage/Data.md)
   * [Training Models](Usage/Training.md)
   * [Labelling Predictions](Usage/Labelling.md)
+  * [Model Monitoring](Usage/Monitoring.md)
 * Advanced
   * [Processing Data](Advanced/Preprocessor.md)
   * [Permission Control](Advanced/Permissions.md)

@@ -1,5 +1,3 @@
-# Permission Management
-
 To effectively manage your organisation on the Smart Maintenance Platform, we have role based 
 permission control.
 

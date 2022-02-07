@@ -2,9 +2,11 @@
 
 * [Introduction](README.md)
 
-## Getting Started
+## Educational
 * [Concepts](Getting_Started/Concepts.md)
 * [Services](Getting_Started/Services.md)
+
+## Getting Started
 * [Setup](Getting_Started/Setup.md)
 
 ## Usage

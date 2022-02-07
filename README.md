@@ -18,3 +18,17 @@ robust MLOps framework at your disposal.
 
 > _**NOTE:**_ This project is under active development.
 
+
+* Educational
+  * [Machine Learning Concepts](Educational/Concepts.md)
+  * [Machine Learning Services](Educational/Services.md)
+* Getting Started 
+  * [Platform Setup](Getting_Started/Setup.md)
+* Usage
+  * [General Workflow](Usage/Workflow.md) 
+  * [Collecting Data](Usage/Data.md)
+  * [Training Models](Usage/Training.md)
+  * [Labelling Predictions](Usage/Labelling.md)
+* Advanced
+  * [Processing Data](Advanced/Preprocessor.md)
+  * [Permission Control](Advanced/Permissions.md)

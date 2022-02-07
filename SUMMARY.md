@@ -3,18 +3,18 @@
 * [Introduction](README.md)
 
 ## Educational
-* [Concepts](Educational/Concepts.md)
-* [Services](Educational/Services.md)
+* [Machine Learning Concepts](Educational/Concepts.md)
+* [Machine Learning Services](Educational/Services.md)
 
 ## Getting Started
-* [Setup](Getting_Started/Setup.md)
+* [Platform Setup](Getting_Started/Setup.md)
 
 ## Usage
-* [Workflow](Usage/Workflow.md)
+* [General Workflow](Usage/Workflow.md)
 * [Collecting Data](Usage/data.md)
-* [Labelling](Usage/Labelling.md)
+* [Labelling Predictions](Usage/Labelling.md)
 * [Training Models](Usage/Training.md)
 
 ## Advanced
 * [Data Processing](Advanced/Preprocessor.md)
-* [Permissions](Advanced/Permissions.md)
+* [Permission Management](Advanced/Permissions.md)

@@ -3,8 +3,8 @@
 * [Introduction](README.md)
 
 ## Educational
-* [Concepts](Getting_Started/Concepts.md)
-* [Services](Getting_Started/Services.md)
+* [Concepts](Educational/Concepts.md)
+* [Services](Educational/Services.md)
 
 ## Getting Started
 * [Setup](Getting_Started/Setup.md)

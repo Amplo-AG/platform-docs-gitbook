@@ -15,7 +15,13 @@ Off the shelf, we support the following file formats:
 - State (.stata)
 - Pickle (.pickle)
 
-## CAN Support
+
+## Flags & Serial Number
+# todo
+
+## Custom File Support
+
+### CAN Support
 
 To support CAN data, upload your DBC file as a dependency. 
 Go to `Integration` > `Machine Data` and click `edit` under the `Preprocessor`. 
@@ -86,8 +92,7 @@ class Preprocessor:
         return {'df': df, 'flags': {}}
 ```
 
-AVRO Support
-------------
+### AVRO Support
             
 Similar to CAN support, AVRO requires a schema like the one below:
 

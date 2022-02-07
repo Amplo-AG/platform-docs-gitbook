@@ -2,14 +2,12 @@
 
 This section describes in more detail the requirements for data, setup & integration.
 
-.. _ref-automated-diagnostics:
-
 ## Automated Diagnostics
 Automated Diagnostics is a service dedicated to reduce Time To Diagnose & Time To Resolve. Instead of hours of data
 analyses and field inspections, Machine Learning models can accurately determine the root cause of incidents and
 directly instruct the optimal resolution.
 This service is often the first to be implemented as it can be done manually, and therefore without intrusive
-infrastructural setup. However, the manual approach is more time consuming than the automatic setup, as will become
+infrastructural setup. However, the manual approach is more time-consuming than the automatic setup, as will become
 obvious from the explanation below.
 
 ### Training Data
@@ -20,7 +18,7 @@ If you are unable to extract the exact time interval of the occurred incident, t
 to 1 day. For longer logs, we internally analyse where in the snapshot the failure patterns are most present and filter
 the rest.
 The training data may contain as many sensor measurements and flags / status' as is available. See
-:ref:`ref-custom-flags` to find out how to extract additional information such as Serial Numbers.
+[Custom Flags](../Advanced/Permissions.md#<Flags & Serial Number>) to find out how to extract additional information such as Serial Numbers.
 If possible, having a timestamp to every data point is extremely useful. This allows for additional resampling
 strategies.
 Though it slightly depends on the complexity of the incident, a rule of thumb is that we need a minimum of 20-30

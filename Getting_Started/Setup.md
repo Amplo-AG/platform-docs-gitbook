@@ -39,8 +39,8 @@ data is sent at a fixed interval (often once a second to once a minute).
 
 We have three data integrations:
 
-- [Cloud Storages](###<Storage Connections>)
-- [Data Streams](#<Data Stream Connections>)
+- [heading](#<Storage Connections>)
+- [heading](#<Data Stream Connections>)
 - [Event Driven](#<Event Driven Connections>)
 
 
@@ -126,11 +126,11 @@ To ensure a safe and secure Storage Connection, make sure to follow RBAC's best 
 - Separate duties for account roles
 
 ### Data Stream Connections
-Amplo supports various protocols to continuously send data to the platform. More specifically, we support [MQTT](#MQTT) 
-and [Webhooks](#Webhooks). These data stream connections are necessary for continuous services, such as 
-[Predictive Maintenance](../Educational/Services.md#<Predictive Maintenance>), 
-[Anomaly Detection](../Educational/Services.md#<Anomaly Detection>) and 
-[Condition Monitoring](../Educational/Services.md#<Condition Monitoring>).
+Amplo supports various protocols to continuously send data to the platform. More specifically, we support [heading](#MQTT) 
+and [heading](#Webhooks). These data stream connections are necessary for continuous services, such as 
+[heading](../Educational/Services.md#<Predictive Maintenance>), 
+[heading](../Educational/Services.md#<Anomaly Detection>) and 
+[heading](../Educational/Services.md#<Condition Monitoring>).
 
 #### MQTT
 MQTT is a lightweight, binary internet protocol specifically designed for IoT devices. It uses certificates & private keys 

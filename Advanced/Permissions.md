@@ -15,4 +15,4 @@ role. Obviously, you need the right permissions to be able to do so :)
 ## Updating Permissions
 
 Under `Settings` > `Permissions`, you find a list of actions that require permission. The permissions
-are all given for the roles described above. Feel free to change them to your organisations need!****
+are all given for the roles described above. Here you can change the role permissions to your organisations need.

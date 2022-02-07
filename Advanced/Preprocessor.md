@@ -1,5 +1,3 @@
-# Data Preprocessors
-
 File formats can be complex, especially for large volumes of long term data storage.
 To support all your custom formats, we have a Data Preprocessor for all your machines. 
 This Preprocessor gives you full freedom to import any type of data, from CAN, to AVRO, 

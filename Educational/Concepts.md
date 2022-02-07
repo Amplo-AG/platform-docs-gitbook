@@ -1,4 +1,3 @@
-# Main Concepts
 In case you're not familiar with Machine Learning, this page concisely describes the
 main concepts and terminology you should understand.
 

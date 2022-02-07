@@ -1,4 +1,3 @@
-# Platform Setup
 This page describes how you can get started as quick as possible!
 
 ## Login & Team Environment

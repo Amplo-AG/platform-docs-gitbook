@@ -48,7 +48,7 @@ We have three data integrations:
 With the purpose of creating the initial training data and getting a maximum amount of
 operational data for anomaly detection, we have off the shelf data connectors for:
 
-- [heading](#<google-cloud-storage>)
+- [heading](#google-cloud-storage)
 - [heading](#<Amazon Web Services S3>)
 - [heading](#<Azure Blob Storage>)
 

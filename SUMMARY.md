@@ -1,8 +1,18 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Data](data.md)
 
-## Group 1
+## Getting Started
+* [Concepts](Getting_Started/Concepts.md)
+* [Services](Getting_Started/Services.md)
+* [Setup](Getting_Started/Setup.md)
 
-* [Page 1](group-1/page-1.md)
+## Usage
+* [Workflow](Usage/Workflow.md)
+* [Collecting Data](Usage/data.md)
+* [Labelling](Usage/Labelling.md)
+* [Training Models](Usage/Training.md)
+
+## Advanced
+* [Data Processing](Advanced/Preprocessor.md)
+* [Permissions](Advanced/Permissions.md)

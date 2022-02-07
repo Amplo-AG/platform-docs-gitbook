@@ -167,7 +167,7 @@ we use the following schema:
   "data": {
     "temperature_01": 29.521,
     "pressure_03": 450.321,
-    "voltage_02": 809.20,
+    "voltage_02": 809.20
   }
 }
 ```

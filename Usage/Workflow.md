@@ -22,6 +22,12 @@ This creates either diagnoses or alerts. It is important to ensure the model is 
 making incorrect predictions. Therefore, labelling alerts & diagnoses is important for the continuous improvement 
 of the models. [Labelling Predictions](Labelling.md) tells you more about this. 
 
+## Monitoring
+Amplo comes with a built-in [Model Monitoring](Monitoring.md) solution. Feature distributions, 
+prediction times, outliers & missing values are all monitored. Therefore, drifting data 
+distributions or concept drift is detected early on. Amplo simply notifies you when and where
+you have to add data to avoid the real world from differing too much from your training data.
+
 ## Integration
 All the information on your data, models & predictions are available over an OpenAPI, and are therefore easily
 integrated with any CRM, ERP or Ticket System. Read more about this in our [OpenAPI Documentation](https://platform.amplo.ch/openapi).

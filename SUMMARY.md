@@ -12,8 +12,9 @@
 ## Usage
 * [General Workflow](Usage/Workflow.md)
 * [Collecting Data](Usage/data.md)
-* [Labelling Predictions](Usage/Labelling.md)
 * [Training Models](Usage/Training.md)
+* [Labelling Predictions](Usage/Labelling.md)
+* [Model Monitoring](Usage/Monitoring.md)
 
 ## Advanced
 * [Data Processing](Advanced/Preprocessor.md)

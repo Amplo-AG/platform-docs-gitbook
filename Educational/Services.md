@@ -113,7 +113,7 @@ As Predictive Maintenance predicts not only the probability of an upcoming incid
 incident is most-likely to occur, it is important that the degradation curve is labelled accordingly. This degradation
 curve has a starting and end point and ranges from 0 - 100 %.
 Every snapshot that is collected in the training data of a Predictive Maintenance model, it is important to label this
-degradation curve properly, whether it's an linear, exponential, or step function.
+degradation curve properly, whether it's a linear, exponential, or step function.
 
 ### Setup
 Similar to Anomaly Detection and Condition Monitoring, Predictive Maintenance requires connected Data Streams.

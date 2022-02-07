@@ -26,7 +26,6 @@ have their all have their own model, and therefore define what is being predicte
     solved by the same resolution, it is smart to combine the two into one resolution, e.g.
     full sub-system replacement.
 
-.. _`ref-data-integration`:
 
 ## Data Integration
 
@@ -36,23 +35,22 @@ and IT landscape. It automates manual steps, saving time while gaining robustnes
 We have three types of data integrations, `Storage Connections`, `Event Driven` and `Data Streams`. Event Driven data
 connectors only send measurement data when a specific event is triggered, such as the creation
 of a service ticket or a specific alarm. Data Streams is a continuous connection, where measurement
-data is send at a fixed interval (often once a second to once a minute).
+data is sent at a fixed interval (often once a second to once a minute).
 
 We have three data integrations:
 
-- :ref:`ref-cloud-storage`
-- :ref:`ref-event-driven`
-- :ref:`ref-data-streams`
+- [Cloud Storages](###<Storage Connections>)
+- [Data Streams](#<Data Stream Connections>)
+- [Event Driven](#<Event Driven Connections>)
 
-.. _ref-cloud-storage:
 
 ### Storage Connections
 With the purpose of creating the initial training data and getting a maximum amount of
 operational data for anomaly detection, we have off the shelf data connectors for:
 
-- :ref:`ref-google-storage`
-- :ref:`ref-amazon-storage`
-- :ref:`ref-azure-storage`
+- [Google Cloud Storage](#<Google Cloud Storage>)
+- [Amazon Web Services S3](#<Amazon Web Services S3>)
+- [Azure Blob Storage](#<Azure Blob Storage>)
 
 > **_NOTE:_** 
     If your cloud vendor or storage service is not listed, we're more than happy to add a few names on our list!
@@ -60,7 +58,6 @@ operational data for anomaly detection, we have off the shelf data connectors fo
 All Storage Connections require some small setup. To do so, click on `Machine Data` in the `Integrations` section of the
 menu. You see a card for Storage Connections with the various cloud services. Press the plus icon to set it up.
 
-.. _ref-google-storage:
 
 #### Google Cloud Storage
 
@@ -83,8 +80,6 @@ In case you use a specific data format (such as Avro or CAN), you have the optio
 Standard, we support CSV, JSON, XML, Feather, Parquet and Stata. In case you use these file formats, you don't need to
 use specify this.
 
-.. _ref-amazon-storage:
-
 #### Amazon Web Services S3
 **1. Authentication**
 First of all, you must have programmatic access enabled. Secondly, you need to create an Access Key. Paste the
@@ -103,8 +98,6 @@ column inside the data.
 In case you use a specific data format (such as Avro or CAN), you have the option to add a small data processor.
 Standard, we support CSV, JSON, XML, Feather, Parquet and Stata. In case you use these file formats, you don't need to
 use specify this.
-
-.. _ref-azure-storage:
 
 #### Azure Blob Storage
 **1. Authentication**
@@ -132,48 +125,80 @@ To ensure a safe and secure Storage Connection, make sure to follow RBAC's best 
 - Rotate Account Keys
 - Separate duties for account roles
 
-
-.. _ref-event-driven:
-
-### Event Driven Connections
-Event Driven Connection goes through APIs. Event Driven integration is only used for :ref:`ref-automated-diagnostics`
-and therefore the `Diagnostics` endpoint can be used. Visit our `API Documentation <https://portal.amplo.ch/api-docs>`_
-for more information. Your `Team Identifier` and `API Key` can be found under `Settings` > `API Access`.
-
-.. _ref-data-streams:
-
 ### Data Stream Connections
-Just like :ref:`ref-event-driven` Connections, Data Streams go through APIs. Data Streams are required for :ref:`ref-condition-monitoring`,
-:ref:`ref-anomaly-detection` and :ref:`ref-predictive-maintenance`. Data Streams can take up significantly more
-bandwidth than Event Driven Connections and uses different cloud systems to improve latency and decrease costs.
-These cloud systems require some minor setting up.
+Amplo supports various protocols to continuously send data to the platform. More specifically, we support [MQTT](#MQTT) 
+and [Webhooks](#Webhooks). These data stream connections are necessary for continuous services, such as 
+[Predictive Maintenance](../Educational/Services.md#<Predictive Maintenance>), 
+[Anomaly Detection](../Educational/Services.md#<Anomaly Detection>) and 
+[Condition Monitoring](../Educational/Services.md#<Condition Monitoring>).
 
-When you enable Data Stream Connections, you'll be prompted with a `Private Key` and a `Publish URL`. Store these
-in a save location. You will need them to authenticate your machines. Data Stream Connections use Binary Formatted data,
-and you can chose between Base64 or Avro encoding. The communication is encrypted with a JSON Web Token. For more
-information on how to implement this, see our `API Documentation <https://portal.amplo.ch/api-docs>`_.
+#### MQTT
+MQTT is a lightweight, binary internet protocol specifically designed for IoT devices. It uses certificates & private keys 
+to authenticate the connection. Therefore, it is necessary to register all Machine Units on the platform and pull the 
+specific certificates and keys. 
 
-.. note::
+To set up a MQTT connection, go to Integration > Machine Data. Under Data Stream Endpoints, click 'Create new'. As it is
+possible to have multiple streams per machine type, give your new stream an intuitive name. Select MQTT as the connection type 
+and click create. The connection will appear directly, and if you click on your new connection, the Host, Port and Topic 
+of our MQTT broker will be displayed. This, along with the private key and certificate, allows your machines to communicate
+with the machine learning models! Last step is to determine the payload, which you can find more about [here](#Payload).
+
+#### Webhooks
+A webhook uses the common HTTP POST protocol to send data. Though not as lightweight, it is often easy to implement.
+To set up a Webhook, go to Integration > Machine Data. Under Data Stream Endpoints, click 'Create new'. As it is
+possible to have multiple streams per machine type, give your new stream an intuitive name. Select Webhook as the connection type 
+and click create. The connection will appear directly, and if you click on your new connection, the Host, and api key are displayed. 
+The API key needs to be set in the HTTP header `x-functions-key`. Last step is to determine the payload, which you can find more about [here](#Payload).
+
+#### Payload
+Though we accept any kind of data, we do need to know which Machine Unit send the data, and when it did so. Therefore, 
+we use the following schema:
+
+```
+{
+  "ts": [str] Timestamp string YYYY-mm-dd HH:MM:SS,
+  "sn": [str | int] Serial number,
+  "data": [object | str] can be a json with key/value pairs or text data,
+}
+```
+```json
+{
+  'ts': '2022-01-01 00:00:00',
+  'sn': '286969-01',
+  'data': {
+    "temperature_01": 29.521,
+    "pressure_03": 450.321,
+    "voltage_02": 809.20,
+  }
+}
+```
+
+
+
+
+> **_NOTE:_** 
     Additional costs are associated with Data Streams.
 
-.. _`ref-ticket-integration`:
+
+### Event Driven Connections
+Event Driven Connection goes through APIs. Event Driven integration is only used for [Automated Diagnostics](../Educational/Services.md#<Automated Diagnostics>)
+and therefore the `Diagnostics` endpoint can be used. Visit our [API Documentation](https://portal.amplo.ch/api-docs)
+for more information. Your `Team Identifier` and `API Key` can be found under `Settings` > `API Access`.
 
 ## Ticket System Integration
--------------------------
 
-For a fully integrated solution, it's recommended to integrate your Service Ticket System along side a full Data
+For a fully integrated solution, it's recommended to integrate your Service Ticket System alongside a full Data
 Integration. This allows Amplo to find historic tickets and organise your training data, notice newly commissioned
 machines and automatically diagnose incoming issues that were missed by our continuous ML Services.
 Out of the box we support the following integrations, but note that we allow custom integration as well, so feel free
 to reach out.
 
-- :ref:`ref-freshdesk`
-- :ref:`ref-salesforce` ** Coming Soon **
+- [Freshdesk](#Freshdesk)
+- [Salesforce](#Salesforce) **Coming Soon**
 
 > **_NOTE:_** 
-    If you're ticket system provider is not listed, feel free to reach out as we're more than happy to add some to our list!
+    If your ticket system provider is not listed, feel free to reach out as we're more than happy to add some to our list!
 
-.. _ref-freshdesk:
 
 ### Freshdesk
 
@@ -189,7 +214,7 @@ You can find the API Key by:
 **2. Integrate ML Services**
 You can directly integrate our ML Services with webhooks. This works through `Freshdesk Automations <https://support.freshdesk.com/support/solutions/articles/132589-using-webhooks-in-automation-rules-that-run-on-ticket-updates>`_.
 You are relatively free to integrate anything with these webhooks. The most common use case is to trigger the
-:ref:`ref-automated-diagnostics` service upon the creation of a ticket. To set this up, use the following settings:
+[Automated Diagnostics](../Educational/Services.md#<Automated Diagnostics>) service upon the creation of a ticket. To set this up, use the following settings:
 
 - Trigger Webhook
 - Request Type: Post

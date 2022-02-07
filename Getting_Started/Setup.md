@@ -2,7 +2,7 @@
 This page describes how you can get started as quick as possible!
 
 ## Login & Team Environment
-You can easily sign up at https://portal.amplo.ch. Make sure you use your business email,
+You can easily sign up at https://platform.amplo.ch. Make sure you use your business email,
 as this will be used to recognize your colleagues. After verifying your account, the first
 colleague to register enters the setup screen. Here he/she sets up the machines and incidents.
 
@@ -39,18 +39,18 @@ data is sent at a fixed interval (often once a second to once a minute).
 
 We have three data integrations:
 
-- [heading](#<Storage Connections>)
-- [heading](#<Data Stream Connections>)
-- [Event Driven](#<Event Driven Connections>)
+- [Storage Connections](#storage-connections)
+- [Data Stream Connections](#data-stream-connections)
+- [Event Driven Connections](#event-driven-connections)
 
 
 ### Storage Connections
 With the purpose of creating the initial training data and getting a maximum amount of
 operational data for anomaly detection, we have off the shelf data connectors for:
 
-- [heading](#google-cloud-storage)
-- [heading](#<Amazon Web Services S3>)
-- [heading](#<Azure Blob Storage>)
+- [Google Cloud Storage](#google-cloud-storage)
+- [Amazon Web Services S3](#amazon-web-services-s3)
+- [Azure Blob Storagte](#<azure-blob-storage)
 
 > **_NOTE:_** 
     If your cloud vendor or storage service is not listed, we're more than happy to add a few names on our list!
@@ -64,7 +64,7 @@ menu. You see a card for Storage Connections with the various cloud services. Pr
 **1. Authentication**
 First, you need to enable programmatic access to your bucket and create a Service Account with `storage.objects.get`
 and `storage.buckets.get` permissions. Download the Service Key and add it as a file or the content as a raw JSON.
-For more information, check the `Google Documentation <https://cloud.google.com/storage/docs/reference/libraries>`_.
+For more information, check the [Google Documentation](https://cloud.google.com/storage/docs/reference/libraries).
 
 **2. Bucket Name**
 The Service Key already contains your `Project ID`, so we only need the `Bucket Name` (or names in case of multiple) to
@@ -82,9 +82,9 @@ use specify this.
 
 #### Amazon Web Services S3
 **1. Authentication**
-First of all, you must have programmatic access enabled. Secondly, you need to create an Access Key. Paste the
+First, you must have programmatic access enabled. Secondly, you need to create an Access Key. Paste the
 `Access Key ID`, `Secret Access Key` and `Session Token` into the appropriate fields in the setup screen.
-For more information, check the `Amazon Documentation <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey>`_.
+For more information, check the [Amazon Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
 
 **2. Bucket Information**
 Additionally, you need to provide your `Bucket Name` and `Region Name`.
@@ -103,14 +103,14 @@ use specify this.
 **1. Authentication**
 First, create a storage account and copy the `Connection String` as described in the Azure's documentation. Paste the
 Connection String into the appropriate field in the setup screen. For more information, check the
-`Azure Documentation <https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python>`_.
+[Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python).
 
 **2. Container Information**
 Next, you need to provide your `Container Name`.
 
 **3. Timestamp & Serial Identification**
 In order to link the data to the ticket system to determine whether it's incident or healthy data, we need to establish
-a a timestamp and serial number per file / sample. This can be done either by filename with regular expressions or by
+a timestamp and serial number per file / sample. This can be done either by filename with regular expressions or by
 column inside the data.
 
 **4. Convert**
@@ -126,11 +126,11 @@ To ensure a safe and secure Storage Connection, make sure to follow RBAC's best 
 - Separate duties for account roles
 
 ### Data Stream Connections
-Amplo supports various protocols to continuously send data to the platform. More specifically, we support [heading](#MQTT) 
-and [heading](#Webhooks). These data stream connections are necessary for continuous services, such as 
-[heading](../Educational/Services.md#<Predictive Maintenance>), 
-[heading](../Educational/Services.md#<Anomaly Detection>) and 
-[heading](../Educational/Services.md#<Condition Monitoring>).
+Amplo supports various protocols to continuously send data to the platform. More specifically, we support [MQTT](#mqtt) 
+and [Webhooks](#webhooks). These data stream connections are necessary for continuous services, such as 
+[Predictive Maintenance](../Educational/Services.md#predictive-maintenance), 
+[Anomaly Detection](../Educational/Services.md#anomaly-detection) and 
+[Condition Monitoring](../Educational/Services.md#condition-monitoring).
 
 #### MQTT
 MQTT is a lightweight, binary internet protocol specifically designed for IoT devices. It uses certificates & private keys 
@@ -141,14 +141,14 @@ To set up a MQTT connection, go to Integration > Machine Data. Under Data Stream
 possible to have multiple streams per machine type, give your new stream an intuitive name. Select MQTT as the connection type 
 and click create. The connection will appear directly, and if you click on your new connection, the Host, Port and Topic 
 of our MQTT broker will be displayed. This, along with the private key and certificate, allows your machines to communicate
-with the machine learning models! Last step is to determine the payload, which you can find more about [here](#Payload).
+with the machine learning models! Last step is to determine the payload, which you can find more about [here](#payload).
 
 #### Webhooks
 A webhook uses the common HTTP POST protocol to send data. Though not as lightweight, it is often easy to implement.
 To set up a Webhook, go to Integration > Machine Data. Under Data Stream Endpoints, click 'Create new'. As it is
 possible to have multiple streams per machine type, give your new stream an intuitive name. Select Webhook as the connection type 
 and click create. The connection will appear directly, and if you click on your new connection, the Host, and api key are displayed. 
-The API key needs to be set in the HTTP header `x-functions-key`. Last step is to determine the payload, which you can find more about [here](#Payload).
+The API key needs to be set in the HTTP header `x-functions-key`. Last step is to determine the payload, which you can find more about [here](#payload).
 
 #### Payload
 Though we accept any kind of data, we do need to know which Machine Unit send the data, and when it did so. Therefore, 
@@ -163,9 +163,9 @@ we use the following schema:
 ```
 ```json
 {
-  'ts': '2022-01-01 00:00:00',
-  'sn': '286969-01',
-  'data': {
+  "ts": "2022-01-01 00:00:00",
+  "sn": "286969-01",
+  "data": {
     "temperature_01": 29.521,
     "pressure_03": 450.321,
     "voltage_02": 809.20,
@@ -173,15 +173,12 @@ we use the following schema:
 }
 ```
 
-
-
-
 > **_NOTE:_** 
     Additional costs are associated with Data Streams.
 
 
 ### Event Driven Connections
-Event Driven Connection goes through APIs. Event Driven integration is only used for [Automated Diagnostics](../Educational/Services.md#<Automated Diagnostics>)
+Event Driven Connection goes through APIs. Event Driven integration is only used for [Automated Diagnostics](../Educational/Services.md#automated-diagnostics)
 and therefore the `Diagnostics` endpoint can be used. Visit our [API Documentation](https://portal.amplo.ch/api-docs)
 for more information. Your `Team Identifier` and `API Key` can be found under `Settings` > `API Access`.
 
@@ -193,8 +190,8 @@ machines and automatically diagnose incoming issues that were missed by our cont
 Out of the box we support the following integrations, but note that we allow custom integration as well, so feel free
 to reach out.
 
-- [Freshdesk](#Freshdesk)
-- [Salesforce](#Salesforce) **Coming Soon**
+- [Freshdesk](#freshdesk)
+- [Salesforce](#salesforce) **Coming Soon**
 
 > **_NOTE:_** 
     If your ticket system provider is not listed, feel free to reach out as we're more than happy to add some to our list!
@@ -212,24 +209,24 @@ You can find the API Key by:
 4. The API Key is available below the change password section.
 
 **2. Integrate ML Services**
-You can directly integrate our ML Services with webhooks. This works through `Freshdesk Automations <https://support.freshdesk.com/support/solutions/articles/132589-using-webhooks-in-automation-rules-that-run-on-ticket-updates>`_.
+You can directly integrate our ML Services with webhooks. This works through [Freshdesk Automations](https://support.freshdesk.com/support/solutions/articles/132589-using-webhooks-in-automation-rules-that-run-on-ticket-updates).
 You are relatively free to integrate anything with these webhooks. The most common use case is to trigger the
-[Automated Diagnostics](../Educational/Services.md#<Automated Diagnostics>) service upon the creation of a ticket. To set this up, use the following settings:
+[Automated Diagnostics](../Educational/Services.md#automated-diagnostics) service upon the creation of a ticket. To set this up, use the following settings:
 
 - Trigger Webhook
 - Request Type: Post
 - URL: https://portal.amplo.ch/api/diagnosis
 - Requires Authentication
-- Enter the `your API Key <https://portal.amplo.ch/settings?api_access>`_
-- Create the body according to our `API Documentation <https://portal.amplo.ch/api-docs>`_
+- Enter the [your API Key](https://platform.amplo.ch/settings?api_access)
+- Create the body according to our [API Documentation](https://portal.amplo.ch/api-docs)
 
-
-.. _ref-salesforce:
 
 ### Salesforce
 Salesforce understands very well that their users need customization. We have developed a custom Lightning Component.
-We have purposely have not developed an application on Salesforce's AppExchange as this is dedicated to the creation
+We purposely have not developed an application on Salesforce's AppExchange as this is dedicated to the creation
 of intellectual property within Salesforce, whereas our intellectual property remains secure on our own servers.
 
 **1. Authenticate Salesforce's OpenAPI**
 In order to pull data from your Salesforce org, we use `Connected Apps`. 
+
+# todo update
